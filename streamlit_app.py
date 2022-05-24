@@ -78,7 +78,7 @@ df_average_night_per_city = df_average_night_per_city.reset_index()
 st.dataframe(df_average_night_per_city)
 
 
-
+st.subheader('The new chart')
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 sizes = [15, 30, 45, 10]

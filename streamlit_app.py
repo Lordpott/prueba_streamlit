@@ -76,3 +76,17 @@ st.pyplot(fig_top10)
 df_average_night_per_city = df.groupby(by='name')['average_nights'].agg(['mean', 'median'])
 df_average_night_per_city = df_average_night_per_city.reset_index()
 st.dataframe(df_average_night_per_city)
+
+
+
+# Pie chart, where the slices will be ordered and plotted counter-clockwise:
+labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+sizes = [15, 30, 45, 10]
+explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+plt.show()

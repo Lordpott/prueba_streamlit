@@ -92,4 +92,4 @@ ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 newchart = plt.figure(figsize = (10, 5))
 
 #plt.show()
-st.pyplot(newchart)
+st.pyplot(fig1)

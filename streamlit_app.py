@@ -100,4 +100,4 @@ y=[1,4,6,8,4]
 
 # Area plot
 fig2 = plt.fill_between(x, y)
-#st.pyplot(fig2)
+st.pyplot(fig2)

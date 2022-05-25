@@ -95,12 +95,13 @@ st.pyplot(fig1)
 
 
 fig2 = plt.figure(figsize = (10, 5))
-max = [1.5, 3, 10, 13, 22, 36, 30, 33, 24.5, 15, 6.5, 1.2]
-min = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
+max = [1.5, 3, 10, 13]
+min = [2, 7, 14, 17]
+cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
 
-plt.fill_between(np.arange(12), max, color="lightpink",
+plt.fill_between(cities, max, color="lightpink",
                  alpha=0.5, label='max')
-plt.fill_between(np.arange(12), min, color="skyblue",
+plt.fill_between(cities, min, color="skyblue",
                  alpha=0.5, label='min')
 
 plt.legend()

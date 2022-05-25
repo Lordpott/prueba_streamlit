@@ -127,16 +127,13 @@ df_max = df['max']
 #st.pyplot(fig_top5)
 
 st.subheader('Min and max prices by city')
-fig2 = plt.figure(figsize = (10, 5))
-cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
-min = [1, 3, 10, 13, 1, 3, 10, 13, 1, 3, 10]
-max = [2, 7, 14, 17, 2, 7, 14, 17, 2, 7, 14]
+min_max_prices_city = plt.figure(figsize = (10, 5))
 
-plt.fill_between(df_cities, df_min, color="skyblue", alpha=0.5, label='min')
-plt.fill_between(df_cities, df_max, color="lightpink", alpha=0.5, label='max')
+plt.fill_between(df_cities, df_min, color="skyblue", alpha=0.5, label='Min price')
+plt.fill_between(df_cities, df_max, color="lightpink", alpha=0.5, label='Max price')
 
 plt.legend()
-st.pyplot(fig2)
+st.pyplot(min_max_prices_city)
 
 
 # st.subheader('The new chart')

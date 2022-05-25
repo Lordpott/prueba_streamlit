@@ -117,7 +117,7 @@ df = pd.read_sql_query(select_query,connection)
 df_cities = df['name']
 df_capacity = df['percentile_cont']
 
-print('Ey este es el valor ' + df_capacity.sum())
+print('Ey este es el valor ' + str(df_capacity.sum()))
 
 st.subheader('Guest capacity by city')
 

@@ -31,10 +31,6 @@ df = pd.read_sql_query(select_query,connection)
 # st.write("Result: ", cursor.fetchall())
 
 
-
-
-
-
 #'''Este es el codigo que se utiliza para la primer visualización, Top 5 Numero de visitas por ciudad ''', con estas comillas se puede imprimir 
 #en pantalla de streamlit lo que quieras
 
@@ -76,6 +72,20 @@ st.dataframe(df_average_night_per_city)
 
 
 
+select_query = '''select min(a.price), max(a.price), c."name"
+   from public.accommodations a
+   join public.cities c on c.city_id = a.id_city 
+   group by c."name"
+   order by c."name";'''
+#Executamos el comando
+cursor.execute(select_query)
+connection.commit()
+#con la funcion fetchall() podemos ver lo que retornaria la base de datos
+#df_accommodations = cursor.fetchall()
+#print(df_accommodations)
+#Esto crea un data frame con la información que pediste de la base de datos
+df = pd.read_sql_query(select_query,connection)
+# st.write("Result: ", cursor.fetchall())
 
 st.subheader('Min and max prices by city')
 fig2 = plt.figure(figsize = (10, 5))

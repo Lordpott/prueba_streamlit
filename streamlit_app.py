@@ -117,6 +117,8 @@ df = pd.read_sql_query(select_query,connection)
 df_cities = df['name']
 df_capacity = df['percentile_cont']
 
+print(df_capacity.sum())
+
 st.subheader('Guest capacity by city')
 
 guest_capacity_city, ax1 = plt.subplots()

@@ -114,13 +114,10 @@ connection.commit()
 
 df = pd.read_sql_query(select_query,connection)
 
-st.dataframe(df)
-
 df_cities = df['name']
 df_capacity = df['percentile_cont']
 
 st.subheader('Guest capacity by city')
-# guest_capacity_city = plt.figure(figsize = (10, 5))
 
 guest_capacity_city, ax1 = plt.subplots()
 ax1.pie(df_capacity, labels=df_cities, autopct='%.1f')

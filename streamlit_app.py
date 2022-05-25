@@ -106,6 +106,8 @@ df = pd.read_sql_query(select_query,connection)
 #Agrupamos por el nombre de las ciudades y sumamos las visitas que han tenido por toda la ciudad
 #df_groupby_ciudad_visitas = df.groupby(by='name')['number_of_visits'].agg([sum, min, max])
 df_cities = df['name']
+df_min = df['min']
+df_max = df['max']
 
 #Reseteamos los index para que 'name' se ponga como columna y no se quede en indice
 #df_groupby_ciudad_visitas = df_groupby_ciudad_visitas.reset_index()
@@ -130,8 +132,8 @@ cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
 min = [1, 3, 10, 13, 1, 3, 10, 13, 1, 3, 10]
 max = [2, 7, 14, 17, 2, 7, 14, 17, 2, 7, 14]
 
-plt.fill_between(df_cities, max, color="lightpink", alpha=0.5, label='max')
-plt.fill_between(df_cities, min, color="skyblue", alpha=0.5, label='min')
+plt.fill_between(df_cities, df_min, color="skyblue", alpha=0.5, label='min')
+plt.fill_between(df_cities, df_max, color="lightpink", alpha=0.5, label='max')
 
 plt.legend()
 st.pyplot(fig2)

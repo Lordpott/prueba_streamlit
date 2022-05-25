@@ -106,7 +106,7 @@ df = pd.read_sql_query(select_query,connection)
 
 #Agrupamos por el nombre de las ciudades y sumamos las visitas que han tenido por toda la ciudad
 #df_groupby_ciudad_visitas = df.groupby(by='name')['number_of_visits'].agg([sum, min, max])
-df_cities = df.orderby(by='name')['name']
+df_cities = df['name']
 
 #Reseteamos los index para que 'name' se ponga como columna y no se quede en indice
 #df_groupby_ciudad_visitas = df_groupby_ciudad_visitas.reset_index()

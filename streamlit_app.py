@@ -93,4 +93,3 @@ newchart = plt.figure(figsize = (10, 5))
 
 #plt.show()
 st.pyplot(fig1)
-st.pyplot(ax1)

@@ -94,11 +94,11 @@ newchart = plt.figure(figsize = (10, 5))
 st.pyplot(fig1)
 
 
-
+fig2 = plt.figure(figsize = (10, 5))
 turnover = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
 plt.fill_between(np.arange(12), turnover,
                  color="skyblue", alpha=0.4)
-fig2 = plt.plot(np.arange(12), turnover, color="Slateblue",
+plt.plot(np.arange(12), turnover, color="Slateblue",
          alpha=0.6, linewidth=2)
 
 plt.tick_params(labelsize=12)

@@ -107,7 +107,7 @@ select_query = '''select PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY a.person_cap
    from public.accommodations a
    join public.cities c on c.city_id = a.id_city 
    group by c."name"
-   order by c."name" limit 4;'''
+   order by c."name";'''
 
 cursor.execute(select_query)
 connection.commit()
@@ -123,7 +123,7 @@ st.subheader('Guest capacity by city')
 # guest_capacity_city = plt.figure(figsize = (10, 5))
 
 guest_capacity_city, ax1 = plt.subplots()
-ax1.pie(df_capacity, labels=df_cities)
+ax1.pie(df_capacity, labels=df_cities, autopct)
 
 st.pyplot(guest_capacity_city)
 

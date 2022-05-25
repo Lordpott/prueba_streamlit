@@ -91,7 +91,6 @@ ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 newchart = plt.figure(figsize = (10, 5))
 
-#plt.show()
 st.pyplot(fig1)
 
 
@@ -99,7 +98,7 @@ st.pyplot(fig1)
 turnover = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
 plt.fill_between(np.arange(12), turnover,
                  color="skyblue", alpha=0.4)
-plt.plot(np.arange(12), turnover, color="Slateblue",
+fig2 = plt.plot(np.arange(12), turnover, color="Slateblue",
          alpha=0.6, linewidth=2)
 
 plt.tick_params(labelsize=12)
@@ -108,4 +107,4 @@ plt.xlabel('Month', size=12)
 plt.ylabel('Turnover (K euros) of ice-cream', size=12)
 plt.ylim(bottom=0)
 
-plt.show()
+st.pyplot(fig2)

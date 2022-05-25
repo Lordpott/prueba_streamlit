@@ -31,10 +31,7 @@ df = pd.read_sql_query(select_query,connection)
 # st.write("Result: ", cursor.fetchall())
 
 
-if (connection):
-  cursor.close()
-  connection.close()
-  print("PostgreSQL connection is closed")
+
 
 
 
@@ -107,3 +104,8 @@ st.pyplot(fig2)
 # newchart = plt.figure(figsize = (10, 5))
 
 # st.pyplot(fig1)
+
+if (connection):
+  cursor.close()
+  connection.close()
+  print("PostgreSQL connection is closed")

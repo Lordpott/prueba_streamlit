@@ -95,8 +95,8 @@ st.pyplot(fig1)
 
 
 fig2 = plt.figure(figsize = (10, 5))
-max = [1.5, 3, 10, 13]
-min = [2, 7, 14, 17]
+min = [1.5, 3, 10, 13]
+max = [2, 7, 14, 17]
 cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
 
 plt.fill_between(cities, max, color="lightpink",

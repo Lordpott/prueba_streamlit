@@ -103,14 +103,35 @@ connection.commit()
 df = pd.read_sql_query(select_query,connection)
 # st.write("Result: ", cursor.fetchall())
 
+#Agrupamos por el nombre de las ciudades y sumamos las visitas que han tenido por toda la ciudad
+#df_groupby_ciudad_visitas = df.groupby(by='name')['number_of_visits'].agg([sum, min, max])
+df_cities = df.orderby(by='name')['name']
+
+#Reseteamos los index para que 'name' se ponga como columna y no se quede en indice
+#df_groupby_ciudad_visitas = df_groupby_ciudad_visitas.reset_index()
+
+#Ordenamos el df por el 'sum' para que esten ordenados del que tiene mas visitas al que tiene menos
+#df_groupby_ciudad_visitas = df_groupby_ciudad_visitas.sort_values('sum', ascending=False)
+
+#Codigo para imprimir el grafico creado con matplotlib
+#st.subheader('TOP 5 (visitas por ciudad)')
+#x = df_groupby_ciudad_visitas['name'][:5]
+#y = df_groupby_ciudad_visitas['sum'][:5]
+#fig_top5 = plt.figure(figsize = (10, 5))
+#plt.bar(x, y, color='red')
+#plt.xlabel('Ciudad')
+#plt.ylabel('Visitas')
+# plt.title('TOP 5 visitas por ciudad')
+#st.pyplot(fig_top5)
+
 st.subheader('Min and max prices by city')
 fig2 = plt.figure(figsize = (10, 5))
 cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
 min = [1.5, 3, 10, 13]
 max = [2, 7, 14, 17]
 
-plt.fill_between(cities, max, color="lightpink", alpha=0.5, label='max')
-plt.fill_between(cities, min, color="skyblue", alpha=0.5, label='min')
+plt.fill_between(df_cities, max, color="lightpink", alpha=0.5, label='max')
+plt.fill_between(df_cities, min, color="skyblue", alpha=0.5, label='min')
 
 plt.legend()
 st.pyplot(fig2)

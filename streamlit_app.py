@@ -93,3 +93,11 @@ newchart = plt.figure(figsize = (10, 5))
 
 #plt.show()
 st.pyplot(fig1)
+
+# Create data
+x=range(1,6)
+y=[1,4,6,8,4]
+
+# Area plot
+fig2 = plt.fill_between(x, y)
+st.pyplot(fig2)

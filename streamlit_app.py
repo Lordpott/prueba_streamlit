@@ -127,8 +127,8 @@ df_cities = df['name']
 st.subheader('Min and max prices by city')
 fig2 = plt.figure(figsize = (10, 5))
 cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
-min = [1.5, 3, 10, 13]
-max = [2, 7, 14, 17]
+min = [1, 3, 10, 13, 1, 3, 10, 13, 1, 3, 10]
+max = [2, 7, 14, 17, 2, 7, 14, 17, 2, 7, 14]
 
 plt.fill_between(df_cities, max, color="lightpink", alpha=0.5, label='max')
 plt.fill_between(df_cities, min, color="skyblue", alpha=0.5, label='min')

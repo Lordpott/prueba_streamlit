@@ -78,31 +78,32 @@ df_average_night_per_city = df_average_night_per_city.reset_index()
 st.dataframe(df_average_night_per_city)
 
 
-st.subheader('The new chart')
-# Pie chart, where the slices will be ordered and plotted counter-clockwise:
-labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-sizes = [15, 30, 45, 10]
-explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
 
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-newchart = plt.figure(figsize = (10, 5))
-
-st.pyplot(fig1)
-
-
+st.subheader('Min and max prices by city')
 fig2 = plt.figure(figsize = (10, 5))
+cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
 min = [1.5, 3, 10, 13]
 max = [2, 7, 14, 17]
-cities = ['Acapulco', 'Bogota', 'Cancun', 'Guadalajara']
 
-plt.fill_between(cities, max, color="lightpink",
-                 alpha=0.5, label='max')
-plt.fill_between(cities, min, color="skyblue",
-                 alpha=0.5, label='min')
+plt.fill_between(cities, max, color="lightpink", alpha=0.5, label='max')
+plt.fill_between(cities, min, color="skyblue", alpha=0.5, label='min')
 
 plt.legend()
 st.pyplot(fig2)
+
+
+# st.subheader('The new chart')
+# # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+# labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+# sizes = [15, 30, 45, 10]
+# explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+
+# fig1, ax1 = plt.subplots()
+# ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        # shadow=True, startangle=90)
+# ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+# newchart = plt.figure(figsize = (10, 5))
+
+# st.pyplot(fig1)

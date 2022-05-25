@@ -121,7 +121,7 @@ st.subheader('Guest capacity by city')
 guest_capacity_city = plt.figure(figsize = (10, 5))
 
 fig1, ax1 = plt.subplots()
-ax1.pie(df_capacity, explode=explode, labels=df_cities, autopct='%1.1f%%', shadow=True, startangle=90)
+ax1.pie(df_capacity, labels=df_cities, autopct='%1.1f%%', shadow=True, startangle=90)
 
 st.pyplot(guest_capacity_city)
 

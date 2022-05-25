@@ -95,16 +95,13 @@ st.pyplot(fig1)
 
 
 fig2 = plt.figure(figsize = (10, 5))
-turnover = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
-plt.fill_between(np.arange(12), turnover,
-                 color="skyblue", alpha=0.4)
-plt.plot(np.arange(12), turnover, color="Slateblue",
-         alpha=0.6, linewidth=2)
+year_n_1 = [1.5, 3, 10, 13, 22, 36, 30, 33, 24.5, 15, 6.5, 1.2]
+year_n = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
 
-plt.tick_params(labelsize=12)
-plt.xticks(np.arange(12), np.arange(1,13))
-plt.xlabel('Month', size=12)
-plt.ylabel('Turnover (K euros) of ice-cream', size=12)
-plt.ylim(bottom=0)
+plt.fill_between(np.arange(12), year_n_1, color="lightpink",
+                 alpha=0.5, label='year N-1')
+plt.fill_between(np.arange(12), year_n, color="skyblue",
+                 alpha=0.5, label='year N')
 
+plt.legend()
 st.pyplot(fig2)

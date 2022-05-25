@@ -107,7 +107,7 @@ select_query = '''select PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY a.person_cap
    from public.accommodations a
    join public.cities c on c.city_id = a.id_city 
    group by c."name"
-   order by c."name";'''
+   order by c."name" limit 4;'''
 
 cursor.execute(select_query)
 connection.commit()

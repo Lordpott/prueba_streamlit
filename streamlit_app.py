@@ -99,5 +99,6 @@ x=range(1,6)
 y=[1,4,6,8,4]
 
 # Area plot
-fig2 = plt.fill_between(x, y)
+plt.fill_between(x, y)
+fig2 = plt.figure(figsize = (10, 5))
 st.pyplot(fig2)

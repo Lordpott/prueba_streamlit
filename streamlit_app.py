@@ -114,6 +114,8 @@ connection.commit()
 
 df = pd.read_sql_query(select_query,connection)
 
+st.dataframe(df)
+
 df_cities = df['name']
 df_capacity = df['percentile_cont']
 

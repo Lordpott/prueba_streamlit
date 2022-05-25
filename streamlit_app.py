@@ -95,13 +95,13 @@ st.pyplot(fig1)
 
 
 fig2 = plt.figure(figsize = (10, 5))
-year_n_1 = [1.5, 3, 10, 13, 22, 36, 30, 33, 24.5, 15, 6.5, 1.2]
-year_n = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
+max = [1.5, 3, 10, 13, 22, 36, 30, 33, 24.5, 15, 6.5, 1.2]
+min = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
 
 plt.fill_between(np.arange(12), year_n_1, color="lightpink",
-                 alpha=0.5, label='year N-1')
+                 alpha=0.5, label='max')
 plt.fill_between(np.arange(12), year_n, color="skyblue",
-                 alpha=0.5, label='year N')
+                 alpha=0.5, label='min')
 
 plt.legend()
 st.pyplot(fig2)

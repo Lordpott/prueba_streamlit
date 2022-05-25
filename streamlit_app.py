@@ -72,59 +72,23 @@ st.dataframe(df_average_night_per_city)
 
 
 
-select_query = '''select min(a.price), max(a.price), c."name"
-   from public.accommodations a
-   join public.cities c on c.city_id = a.id_city 
-   group by c."name"
-   order by c."name";'''
-#Executamos el comando
-cursor.execute(select_query)
-connection.commit()
-#con la funcion fetchall() podemos ver lo que retornaria la base de datos
-#df_accommodations = cursor.fetchall()
-#print(df_accommodations)
-#Esto crea un data frame con la información que pediste de la base de datos
-df = pd.read_sql_query(select_query,connection)
-# st.write("Result: ", cursor.fetchall())
 
+# == Min and max prices by city
 
 select_query = '''select min(a.price), max(a.price), c."name"
    	from public.accommodations a
    	join public.cities c on c.city_id = a.id_city 
    	group by c."name"
    	order by c."name"'''
-#Executamos el comando
+
 cursor.execute(select_query)
 connection.commit()
-#con la funcion fetchall() podemos ver lo que retornaria la base de datos
-#df_accommodations = cursor.fetchall()
-#print(df_accommodations)
-#Esto crea un data frame con la información que pediste de la base de datos
-df = pd.read_sql_query(select_query,connection)
-# st.write("Result: ", cursor.fetchall())
 
-#Agrupamos por el nombre de las ciudades y sumamos las visitas que han tenido por toda la ciudad
-#df_groupby_ciudad_visitas = df.groupby(by='name')['number_of_visits'].agg([sum, min, max])
+df = pd.read_sql_query(select_query,connection)
+
 df_cities = df['name']
 df_min = df['min']
 df_max = df['max']
-
-#Reseteamos los index para que 'name' se ponga como columna y no se quede en indice
-#df_groupby_ciudad_visitas = df_groupby_ciudad_visitas.reset_index()
-
-#Ordenamos el df por el 'sum' para que esten ordenados del que tiene mas visitas al que tiene menos
-#df_groupby_ciudad_visitas = df_groupby_ciudad_visitas.sort_values('sum', ascending=False)
-
-#Codigo para imprimir el grafico creado con matplotlib
-#st.subheader('TOP 5 (visitas por ciudad)')
-#x = df_groupby_ciudad_visitas['name'][:5]
-#y = df_groupby_ciudad_visitas['sum'][:5]
-#fig_top5 = plt.figure(figsize = (10, 5))
-#plt.bar(x, y, color='red')
-#plt.xlabel('Ciudad')
-#plt.ylabel('Visitas')
-# plt.title('TOP 5 visitas por ciudad')
-#st.pyplot(fig_top5)
 
 st.subheader('Min and max prices by city')
 min_max_prices_city = plt.figure(figsize = (10, 5))
@@ -134,6 +98,8 @@ plt.fill_between(df_cities, df_max, color="lightpink", alpha=0.5, label='Max pri
 
 plt.legend()
 st.pyplot(min_max_prices_city)
+
+# = Min and max prices by city
 
 
 # st.subheader('The new chart')

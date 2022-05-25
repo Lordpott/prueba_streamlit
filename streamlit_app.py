@@ -99,7 +99,34 @@ plt.fill_between(df_cities, df_max, color="lightpink", alpha=0.5, label='Max pri
 plt.legend()
 st.pyplot(min_max_prices_city)
 
-# = Min and max prices by city
+# =
+
+# == Guest capacity by city
+
+select_query = '''select PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY a.person_capacity), c."name"
+   from public.accommodations a
+   join public.cities c on c.city_id = a.id_city 
+   group by c."name"
+   order by c."name";'''
+
+cursor.execute(select_query)
+connection.commit()
+
+df = pd.read_sql_query(select_query,connection)
+
+df_cities = df['name']
+df_capacity = df['min']
+
+st.subheader('Guest capacity by city')
+guest_capacity_city = plt.figure(figsize = (10, 5))
+
+fig1, ax1 = plt.subplots()
+ax1.pie(df_capacity, explode=explode, labels=df_cities, autopct='%1.1f%%', shadow=True, startangle=90)
+
+st.pyplot(guest_capacity_city)
+
+# =
+
 
 
 # st.subheader('The new chart')
@@ -113,7 +140,6 @@ st.pyplot(min_max_prices_city)
 # ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         # shadow=True, startangle=90)
 # ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-# newchart = plt.figure(figsize = (10, 5))
 
 # st.pyplot(fig1)
 

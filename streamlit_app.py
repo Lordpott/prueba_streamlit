@@ -94,11 +94,18 @@ newchart = plt.figure(figsize = (10, 5))
 #plt.show()
 st.pyplot(fig1)
 
-# Create data
-x=range(1,6)
-y=[1,4,6,8,4]
 
-# Area plot
-plt.fill_between(x, y)
-fig2 = plt.figure(figsize = (10, 5))
-st.pyplot(fig2)
+
+turnover = [2, 7, 14, 17, 20, 27, 30, 38, 25, 18, 6, 1]
+plt.fill_between(np.arange(12), turnover,
+                 color="skyblue", alpha=0.4)
+plt.plot(np.arange(12), turnover, color="Slateblue",
+         alpha=0.6, linewidth=2)
+
+plt.tick_params(labelsize=12)
+plt.xticks(np.arange(12), np.arange(1,13))
+plt.xlabel('Month', size=12)
+plt.ylabel('Turnover (K euros) of ice-cream', size=12)
+plt.ylim(bottom=0)
+
+plt.show()

@@ -132,19 +132,17 @@ df_capacity = df['capacity']
 st.subheader('Guest capacity by city')
 
 # Create a data frame with fake data
-df = pd.DataFrame({'nb_people':df['capacity'], 'group':df['name'] })
+df = pd.DataFrame({'cities':df['capacity'], 'group':df['name'] })
 
-# plot it
 fig2 = plt.figure(figsize = (10, 5))
-squarify.plot(sizes=df['nb_people'], label=df['group'], alpha=.8 )
+squarify.plot(sizes=df['cities'], label=df['group'], alpha=.8 )
 plt.axis('off')
 st.pyplot(fig2)
 
-
-guest_capacity_city, ax1 = plt.subplots()
-ax1.pie(df_capacity, labels=df_cities, autopct='%.1f')
-
-st.pyplot(guest_capacity_city)
+# Pie chart
+# guest_capacity_city, ax1 = plt.subplots()
+# ax1.pie(df_capacity, labels=df_cities, autopct='%.1f')
+# st.pyplot(guest_capacity_city)
 
 # =
 

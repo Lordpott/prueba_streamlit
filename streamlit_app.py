@@ -108,7 +108,6 @@ ax2.plot(df_cities, df_max, color=color)
 ax2.tick_params(axis='y', labelcolor=color)
 
 fig.tight_layout()  # otherwise the right y-label is slightly clipped
-plt.show()
 st.pyplot(fig)
 
 # =
@@ -136,11 +135,11 @@ st.subheader('Guest capacity by city')
 df = pd.DataFrame({'nb_people':[8,3,4,2], 'group':["group A", "group B", "group C", "group D"] })
 
 # plot it
+fig2 = plt.figure(figsize = (10, 5))
 fig2 = squarify.plot(sizes=df['nb_people'], label=df['group'], alpha=.8 )
 plt.axis('off')
 plt.show()
-
-# st.pyplot(fig2)
+st.pyplot(fig2)
 
 
 guest_capacity_city, ax1 = plt.subplots()

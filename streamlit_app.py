@@ -92,24 +92,19 @@ df_max = df['max']
 
 st.subheader('Min and max prices by city')
 
-# Create some mock data
-t = df['name'] # np.arange(0.01, 10.0, 0.01)
-data1 = df['min'] # np.exp(t * 0.3)
-data2 = df['max'] # np.sin(0.5 * np.pi * t)
-
 fig, ax1 = plt.subplots()
 
-color = 'tab:pink'
-ax1.set_xlabel('prices')
-ax1.set_ylabel('cities', color=color)
-ax1.plot(t, data1, color=color)
+color = 'tab:red'
+ax1.set_xlabel('cities')
+ax1.set_ylabel('min prices', color=color)
+ax1.plot(t, df_min, color=color)
 ax1.tick_params(axis='y', labelcolor=color)
 
 ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
 color = 'tab:blue'
-ax2.set_ylabel('sin', color=color)  # we already handled the x-label with ax1
-ax2.plot(t, data2, color=color)
+ax2.set_ylabel('max prices', color=color)  # we already handled the x-label with ax1
+ax2.plot(t, df_max, color=color)
 ax2.tick_params(axis='y', labelcolor=color)
 
 fig.tight_layout()  # otherwise the right y-label is slightly clipped

@@ -176,7 +176,7 @@ plt.legend(loc='upper left')
 
 for i, txt in enumerate(s):
     x1 = i+1
-    plt.annotate(txt, (x[x1], y[i]))
+    plt.annotate(txt, (x1, y[i]))
 
 st.pyplot(fig3)
 

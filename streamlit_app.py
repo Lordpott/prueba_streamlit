@@ -112,14 +112,6 @@ fig.tight_layout()  # otherwise the right y-label is slightly clipped
 plt.show()
 st.pyplot(fig)
 
-min_max_prices_city = plt.figure(figsize = (10, 5))
-
-plt.fill_between(df_cities, df_min, color="skyblue", alpha=0.5, label='Min price')
-plt.fill_between(df_cities, df_max, color="lightpink", alpha=0.5, label='Max price')
-
-plt.legend()
-st.pyplot(min_max_prices_city)
-
 # =
 
 # == Guest capacity by city

@@ -91,6 +91,31 @@ df_min = df['min']
 df_max = df['max']
 
 st.subheader('Min and max prices by city')
+
+# Create some mock data
+t = np.arange(0.01, 10.0, 0.01)
+data1 = np.exp(t * 0.3)
+data2 = np.sin(0.5 * np.pi * t)
+
+fig, ax1 = plt.subplots()
+
+color = 'tab:pink'
+ax1.set_xlabel('time (s)')
+ax1.set_ylabel('exp', color=color)
+ax1.plot(t, data1, color=color)
+ax1.tick_params(axis='y', labelcolor=color)
+
+ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+
+color = 'tab:blue'
+ax2.set_ylabel('sin', color=color)  # we already handled the x-label with ax1
+ax2.plot(t, data2, color=color)
+ax2.tick_params(axis='y', labelcolor=color)
+
+fig.tight_layout()  # otherwise the right y-label is slightly clipped
+plt.show()
+st.pyplot(fig)
+
 min_max_prices_city = plt.figure(figsize = (10, 5))
 
 plt.fill_between(df_cities, df_min, color="skyblue", alpha=0.5, label='Min price')

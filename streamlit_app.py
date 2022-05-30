@@ -166,7 +166,7 @@ st.subheader('Guest capacity by city')
 np.random.seed(19680801)
 
 x = df_cities
-y = [1,2,3,4,5]
+y = [1,2,3,4,5,6,7,8,9,10,11]
 s = df_starts_avg
 
 fig3 = plt.figure(figsize = (10, 5))

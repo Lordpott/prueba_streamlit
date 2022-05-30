@@ -166,7 +166,7 @@ st.subheader('Guest capacity by city')
 
 x = df_cities
 y = df_starts_avg
-s = df_starts_count
+s = df_starts_avg
 
 fig3 = plt.figure(figsize = (10, 5))
 plt.scatter(x, y, s, c="g", alpha=0.5, label="Stars")

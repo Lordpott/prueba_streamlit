@@ -91,7 +91,7 @@ df_max = df['max']
 
 st.subheader('Min and max prices by city')
 
-fig, ax1 = plt.subplots()
+fig, ax1 = plt.subplots(figsize=(15,15))
 
 color = 'tab:red'
 ax1.set_xlabel('cities')

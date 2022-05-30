@@ -132,7 +132,8 @@ df_capacity = df['percentile_cont']
 st.subheader('Guest capacity by city')
 
 # Create a data frame with fake data
-df = pd.DataFrame({'nb_people':[8,3,4,2], 'group':["group A", "group B", "group C", "group D"] })
+# df = pd.DataFrame({'nb_people':[8,3,4,2], 'group':["group A", "group B", "group C", "group D"] })
+df = pd.DataFrame({'nb_people':df['percentile_cont'], 'group':df['name'] })
 
 # plot it
 fig2 = plt.figure(figsize = (10, 5))

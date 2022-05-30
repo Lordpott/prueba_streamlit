@@ -173,6 +173,10 @@ plt.scatter(x, y, s, c="b", alpha=0.5, label="Stars")
 plt.xlabel("Cities")
 plt.ylabel("Qualification")
 plt.legend(loc='upper left')
+
+for i, txt in enumerate(s):
+    plt.annotate(txt, (x[i], y[i]))
+
 st.pyplot(fig3)
 
 # =

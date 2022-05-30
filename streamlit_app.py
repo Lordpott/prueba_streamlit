@@ -86,6 +86,7 @@ connection.commit()
 
 df = pd.read_sql_query(select_query,connection)
 
+t = np.arange(0.01, 10.0, 0.01)
 df_cities = df['name']
 df_min = df['min']
 df_max = df['max']

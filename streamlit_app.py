@@ -175,7 +175,8 @@ plt.ylabel("Qualification")
 plt.legend(loc='upper left')
 
 for i, txt in enumerate(s):
-    plt.annotate(txt, (x[i+1], y[i]))
+    x1 = i+1
+    plt.annotate(txt, (x[x1], y[i]))
 
 st.pyplot(fig3)
 

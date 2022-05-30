@@ -140,7 +140,7 @@ fig2 = squarify.plot(sizes=df['nb_people'], label=df['group'], alpha=.8 )
 plt.axis('off')
 plt.show()
 
-st.pyplot(fig2)
+# st.pyplot(fig2)
 
 
 guest_capacity_city, ax1 = plt.subplots()

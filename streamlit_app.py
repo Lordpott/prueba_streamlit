@@ -86,14 +86,13 @@ connection.commit()
 
 df = pd.read_sql_query(select_query,connection)
 
-t = np.arange(0.01, 10.0, 0.01)
 df_cities = df['name']
 df_min = df['min']
 df_max = df['max']
 
 st.subheader('Min and max prices by city')
 
-fig, ax1 = plt.subplots()
+fig, ax1 = plt.subplots(figsize=(200, 200))
 
 color = 'tab:red'
 ax1.set_xlabel('cities')

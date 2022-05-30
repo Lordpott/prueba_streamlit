@@ -131,7 +131,6 @@ df_capacity = df['capacity']
 
 st.subheader('Guest capacity by city')
 
-# Create a data frame with fake data
 df = pd.DataFrame({'cities':df['capacity'], 'group':df['name'] })
 
 fig2 = plt.figure(figsize = (10, 5))
@@ -146,7 +145,38 @@ st.pyplot(fig2)
 
 # =
 
+# == Average stars by city
 
+select_query = '''select avg(a.star_rating), c."name"
+   from public.accommodations a
+   join public.cities c on c.city_id = a.id_city 
+   group by c."name"
+   order by c."name";'''
+
+cursor.execute(select_query)
+connection.commit()
+
+df = pd.read_sql_query(select_query,connection)
+
+df_cities = df['name']
+df_starts_avg = df['avg']
+
+st.subheader('Guest capacity by city')
+
+np.random.seed(19680801)
+
+x = df_cities
+y = [1,2,3,4,5]
+s = df_starts_avg
+
+fig3 = plt.figure(figsize = (10, 5))
+plt.scatter(x, y, s, c="g", alpha=0.5, label="Stars")
+plt.xlabel("Cities")
+plt.ylabel("Qualification")
+plt.legend(loc='upper left')
+st.pyplot(fig3)
+
+# =
 
 if (connection):
   cursor.close()

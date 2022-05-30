@@ -115,11 +115,11 @@ st.pyplot(fig)
 
 # == Guest capacity by city
 
-select_query = '''select PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY a.person_capacity), c."name"
+select_query = '''select PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY a.person_capacity) capacity, c."name"
    from public.accommodations a
    join public.cities c on c.city_id = a.id_city 
    group by c."name"
-   order by c."name";'''
+   order by capacity desc;'''
 
 cursor.execute(select_query)
 connection.commit()
@@ -132,7 +132,6 @@ df_capacity = df['percentile_cont']
 st.subheader('Guest capacity by city')
 
 # Create a data frame with fake data
-# df = pd.DataFrame({'nb_people':[8,3,4,2], 'group':["group A", "group B", "group C", "group D"] })
 df = pd.DataFrame({'nb_people':df['percentile_cont'], 'group':df['name'] })
 
 # plot it
@@ -150,20 +149,6 @@ st.pyplot(guest_capacity_city)
 # =
 
 
-
-# st.subheader('The new chart')
-# # Pie chart, where the slices will be ordered and plotted counter-clockwise:
-# labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-# sizes = [15, 30, 45, 10]
-# explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
-
-
-# fig1, ax1 = plt.subplots()
-# ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-        # shadow=True, startangle=90)
-# ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
-# st.pyplot(fig1)
 
 if (connection):
   cursor.close()

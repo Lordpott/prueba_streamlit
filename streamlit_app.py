@@ -6,6 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from psycopg2 import Error
 import numpy as np
+import squarify
 
 
 connection = psycopg2.connect(user="vyzgmpqsxeucnv",

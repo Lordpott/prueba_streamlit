@@ -93,9 +93,9 @@ df_max = df['max']
 st.subheader('Min and max prices by city')
 
 # Create some mock data
-t = df['min'] # np.arange(0.01, 10.0, 0.01)
-data1 = np.exp(t * 0.3)
-data2 = np.sin(0.5 * np.pi * t)
+t = df['name'] # np.arange(0.01, 10.0, 0.01)
+data1 = df['min'] # np.exp(t * 0.3)
+data2 = df['max'] # np.sin(0.5 * np.pi * t)
 
 fig, ax1 = plt.subplots()
 

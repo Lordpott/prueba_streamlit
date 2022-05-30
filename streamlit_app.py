@@ -127,12 +127,12 @@ connection.commit()
 df = pd.read_sql_query(select_query,connection)
 
 df_cities = df['name']
-df_capacity = df['percentile_cont']
+df_capacity = df['capacity']
 
 st.subheader('Guest capacity by city')
 
 # Create a data frame with fake data
-df = pd.DataFrame({'nb_people':df['percentile_cont'], 'group':df['name'] })
+df = pd.DataFrame({'nb_people':df['capacity'], 'group':df['name'] })
 
 # plot it
 fig2 = plt.figure(figsize = (10, 5))

@@ -168,7 +168,7 @@ x = df_cities
 y = df_starts_avg
 s = df_starts_count
 
-fig3 = plt.figure(figsize = (10, 8))
+fig3 = plt.figure(figsize = (12, 8))
 plt.scatter(x, y, s, c="b", alpha=0.5, label="Stars")
 plt.xlabel("Cities")
 plt.ylabel("Qualification")

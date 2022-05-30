@@ -147,7 +147,7 @@ st.pyplot(fig2)
 
 # == Average stars by city
 
-select_query = '''select avg(a.star_rating), c."name"
+select_query = '''select avg(a.star_rating), count(a.star_rating), c."name"
    from public.accommodations a
    join public.cities c on c.city_id = a.id_city 
    group by c."name"
@@ -160,13 +160,12 @@ df = pd.read_sql_query(select_query,connection)
 
 df_cities = df['name']
 df_starts_avg = df['avg']
+df_starts_count = df['count']
 
 st.subheader('Guest capacity by city')
 
-np.random.seed(19680801)
-
 x = df_cities
-y = df_cities
+y = df_starts_count
 s = df_starts_avg
 
 fig3 = plt.figure(figsize = (10, 5))

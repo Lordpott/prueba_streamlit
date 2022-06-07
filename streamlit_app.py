@@ -104,16 +104,13 @@ st.pyplot(fig)
 
 st.subheader('Max prices by city')
 
-figm, ax2 = plt.subplots(figsize=(10,10))
-
-#ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+figm, ax2 = plt.subplots(figsize=(10,5))
 
 color = 'tab:blue'
 ax2.set_ylabel('max prices', color=color)  # we already handled the x-label with ax1
 ax2.plot(df_cities, df_max, color=color)
 ax2.tick_params(axis='y', labelcolor=color)
 
-#fig.tight_layout()  # otherwise the right y-label is slightly clipped
 st.pyplot(figm)
 
 # =

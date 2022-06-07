@@ -92,7 +92,7 @@ df_max = df['max']
 
 st.subheader('Min prices by city')
 
-fig, ax1 = plt.subplots(figsize=(10,10))
+figmin, ax1 = plt.subplots(figsize=(10,5))
 
 color = 'tab:red'
 ax1.set_xlabel('cities')
@@ -100,18 +100,17 @@ ax1.set_ylabel('min prices', color=color)
 ax1.plot(df_cities, df_min, color=color)
 ax1.tick_params(axis='y', labelcolor=color)
 
-st.pyplot(fig)
+st.pyplot(figmin)
 
 st.subheader('Max prices by city')
-
-figm, ax2 = plt.subplots(figsize=(10,5))
+figmax, ax2 = plt.subplots(figsize=(10,5))
 
 color = 'tab:blue'
 ax2.set_ylabel('max prices', color=color)  # we already handled the x-label with ax1
 ax2.plot(df_cities, df_max, color=color)
 ax2.tick_params(axis='y', labelcolor=color)
 
-st.pyplot(figm)
+st.pyplot(figmax)
 
 # =
 
